@@ -8,6 +8,7 @@ $base-font-color: black;
 body, html {
   height: 100%;
   width: 100%;
+  text-align: center;
 }
 
 a {
@@ -44,6 +45,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .company-name {
+
+  @media(max-width: 430px) {
+    font-size: 2.5em;
+  }
+
   font-size: 4em;
   flex-grow: 1;
   display: flex;
@@ -53,7 +59,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .contact {
   flex-grow: 1;
-  font-size: 2em;
+  font-size: 1.5em;
   display: flex;
   align-items: center;
 }
@@ -110,7 +116,9 @@ h1, h2, h3, h4, h5, h6 {
 
 
 .centralized {
+  padding: 10px 10px 0;
   display: flex;
+  box-sizing: border-box;
   width: 100vw;
   flex-direction: column;
   align-items: center;
