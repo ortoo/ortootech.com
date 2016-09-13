@@ -1,0 +1,45 @@
+doctype html
+html
+  head
+    title Ortoo Technologies
+    link(rel="icon", href=require('./images/icon.png'))
+    script(src="https://use.typekit.net/zvt7siv.js")
+    script.
+      try{Typekit.load({ async: false });}catch(e){}
+    each css in htmlWebpackPlugin.files.chunks.index.css
+      link(rel="stylesheet", href=css)
+
+  body
+    .page
+      .centralized
+        h1.company-name Ortoo Technologies
+        .description Bespoke software development and consultancy
+        .location Norwich and Cheltenham, UK
+        .final-word Creators of&nbsp;
+          a(href="https://governorhub.com") GovernorHub
+        .contact
+          a(href="mailto:info@ortootech.com") info@ortootech.com
+        .github
+          a(href="https://github.com/ortoo")
+            img.logo(src=require('./images/logos/github.svg'), title="See our code on GitHub")
+      .logo-strip
+          img.logo(src=require('./images/logos/mongodb.svg'), title="Mongo DB")
+          img.logo(src=require('./images/logos/redis.svg'), title="Redis")
+          img.logo(src=require('./images/logos/mssqlserver.svg'), title="Microsoft SQL Server")
+          img.logo(src=require('./images/logos/js.svg'), title="Javascript")
+          img.logo(src=require('./images/logos/html.svg'), title="HTML")
+          img.logo(src=require('./images/logos/css.svg'), title="CSS")
+          img.logo(src=require('./images/logos/pug.svg'), title="Jade/Pug")
+          img.logo(src=require('./images/logos/sass.svg'), title="Sass")
+          img.logo(src=require('./images/logos/angular.svg'), title="Angular JS")
+          img.logo(src=require('./images/logos/node.svg'), title="Node JS")
+          img.logo(src=require('./images/logos/python.svg'), title="Python")
+          img.logo(src=require('./images/logos/msnet.svg'), title=".NET")
+          img.logo(src=require('./images/logos/ios.svg'), title="iOS")
+          img.logo(src=require('./images/logos/android.svg'), title="Android")
+          img.logo(src=require('./images/logos/cordova.svg'), title="Cordova")
+          img.logo(src=require('./images/logos/ionic.svg'), title="Ionic")
+          img.logo(src=require('./images/logos/docker.svg'), title="Docker")
+          img.logo(src=require('./images/logos/google-cloud.svg'), title="Google Cloud")
+          img.logo(src=require('./images/logos/aws.svg'), title="Amazon Web Services")
+          img.logo(src=require('./images/logos/azure.svg'), title="Microsoft Azure")

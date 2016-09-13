@@ -1,0 +1,119 @@
+@import "~normalize-scss";
+
+$small-logo: 20px;
+$large-logo: 40px;
+$logo-padding: 10px;
+$base-font-color: black;
+
+body, html {
+  height: 100%;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: $base-font-color;
+  transition: color 0.5s ease-in-out;
+
+  &:active, &:visited, &:focus {
+    color: $base-font-color;
+  }
+
+  &:hover {
+    color: #5AAADB;
+  }
+}
+
+body {
+  margin: 0;
+}
+
+body {
+  font-family: "proxima-nova",sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "filson-soft",sans-serif;
+  font-weight: 100;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.company-name {
+  font-size: 4em;
+  flex-grow: 1;
+  display: flex;
+  align-items: flex-end;
+  text-align: center;
+}
+
+.contact {
+  flex-grow: 1;
+  font-size: 2em;
+  display: flex;
+  align-items: center;
+}
+
+.github {
+  display: flex;
+  align-items: center;
+
+  a {
+    display: flex;
+    align-items: center;
+    height: 111px;
+  }
+
+  .logo {
+    height: 40px;
+
+    &:hover {
+      height: 70px;
+    }
+  }
+}
+
+.logo-strip {
+  display: flex;
+  flex-wrap: nowrap;
+  // justify-content: center;
+  align-items: flex-end;
+  height: $large-logo + 2 * $logo-padding;
+  overflow-x: auto;
+  width: 100vw;
+
+  .logo:first-child {
+    margin-left: auto;
+  }
+
+  .logo:last-child {
+    margin-right: auto;
+  }
+}
+
+.logo {
+  padding: $logo-padding;
+  height: $small-logo;
+  filter: grayscale(100%);
+  transition: filter 0.5s ease-in-out, height 0.5s ease-in-out;
+
+  &:hover {
+    filter: grayscale(0%);
+    height: $large-logo;
+  }
+}
+
+
+
+.centralized {
+  display: flex;
+  width: 100vw;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+}

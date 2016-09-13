@@ -1,0 +1,34 @@
+machine:
+  services:
+    - docker
+  node:
+    version: 5.1.0
+
+dependencies:
+  post:
+    - APP_VERSION=${CIRCLE_SHA1} PROD=1 ./node_modules/.bin/webpack
+    - docker build -t quay.io/ortoo/ortootech:${CIRCLE_SHA1} .
+test:
+  override:
+    - "true"
+
+deployment:
+  prod:
+    branch: master
+    commands:
+      - docker login -e "$DOCKER_EMAIL" -u "$DOCKER_USER" -p "$DOCKER_PASS" quay.io
+      - docker push quay.io/ortoo/ortootech
+      - >
+        curl -i -H "Authorization: token ${GITHUB_TOKEN}" -d "{ \
+          \"ref\": \"${CIRCLE_SHA1}\", \
+          \"required_contexts\": [],
+          \"auto_merge\": false, \
+          \"payload\": { \
+            \"image\": \"quay.io/ortoo/ortootech\", \
+            \"branch\": \"${CIRCLE_BRANCH}\", \
+            \"version\": \"${CIRCLE_SHA1}\", \
+            \"webserver\": true, \
+            \"webserverName\": \"ortoo\" \
+          }, \
+          \"environment\": \"production\" \
+        }" https://api.github.com/repos/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}/deployments
